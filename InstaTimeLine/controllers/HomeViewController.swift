@@ -30,8 +30,14 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
         
         setNavigationBar()
         
-        items.append(Post(fullname: "Sherzod", user_img: "im_person1", post_img: "im_post1"))
-        items.append(Post(fullname: "Malika", user_img: "im_person2", post_img: "im_post2"))
+        items.append(Post(fullname: "Sherzod", user_img: "im_person1", post_img: "im_post1", img_post: "im_post2"))
+        items.append(Post(fullname: "Malika", user_img: "im_person2", post_img: "im_post1", img_post: "im_post2"))
+        items.append(Post(fullname: "Sherzod", user_img: "im_person1", post_img: "im_post1", img_post: "im_post2"))
+        items.append(Post(fullname: "Malika", user_img: "im_person2", post_img: "im_post1", img_post: "im_post2"))
+        items.append(Post(fullname: "Sherzod", user_img: "im_person1", post_img: "im_post1", img_post: "im_post2"))
+        items.append(Post(fullname: "Malika", user_img: "im_person2", post_img: "im_post1", img_post: "im_post2"))
+        items.append(Post(fullname: "Sherzod", user_img: "im_person1", post_img: "im_post1", img_post: "im_post2"))
+        items.append(Post(fullname: "Malika", user_img: "im_person2", post_img: "im_post1", img_post: "im_post2"))
     }
     
     func setNavigationBar(){
@@ -65,11 +71,16 @@ class HomeViewController: BaseViewController,UITableViewDelegate,UITableViewData
         
         let cell = Bundle.main.loadNibNamed("PostTableViewCell", owner: self, options: nil)?.first as!  PostTableViewCell
         
+        cell.profileImageView.image = UIImage(named: item.user_img!)
+        cell.fullname.text = item.fullname
+        cell.postImageView1.image = UIImage(named: item.post_img!)
+        cell.postImageView2.image = UIImage(named: item.img_post!)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+        return 600
         
     }
 }
